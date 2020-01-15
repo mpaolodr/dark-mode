@@ -1,28 +1,35 @@
 import React, { useState } from "react";
+import { useForm } from "../hooks/useForm";
 
 const SignIn = () => {
-  const [userInfo, setUserInfo] = useState({
+  //   const [userInfo, setUserInfo] = useState({
+  //     username: "",
+  //     email: "",
+  //     password: ""
+  //   });
+
+  //   //handleChange
+  //   const handleChange = e => {
+  //     const { name, value } = e.target;
+
+  //     setUserInfo({
+  //       ...userInfo,
+  //       [name]: value
+  //     });
+  //   };
+
+  const [userInfo, setUserInfo, handleChange] = useForm("sign-in", {
     username: "",
     email: "",
     password: ""
   });
-
-  //handleChange
-  const handleChange = e => {
-    const { name, value } = e.target;
-
-    setUserInfo({
-      ...userInfo,
-      [name]: value
-    });
-  };
 
   //handleSubmit
   const handleSubmit = e => {
     e.preventDefault();
 
     console.log(userInfo);
-    setUserInfo({ username: "", email: "" });
+    setUserInfo({ username: "", email: "", password: "" });
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -59,6 +66,8 @@ const SignIn = () => {
           required
         />
       </div>
+
+      <button type="submit">Sign-In</button>
     </form>
   );
 };
