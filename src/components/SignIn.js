@@ -27,12 +27,13 @@ const SignIn = () => {
   //handleSubmit
   const handleSubmit = e => {
     e.preventDefault();
-
     console.log(userInfo);
     setUserInfo({ username: "", email: "", password: "" });
   };
+
   return (
     <form onSubmit={handleSubmit}>
+      <h2>Sign-In</h2>
       <div className="ind-field">
         <label htmlFor="username">Username</label>
         <input
